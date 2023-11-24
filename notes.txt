@@ -1,2 +1,0 @@
-What is Operating System?
--> An operating system (OS) is software that acts as a middleman or a bridge between computer hardware and the computer user. It provides a user interface and controls the computer hardware so that software can function

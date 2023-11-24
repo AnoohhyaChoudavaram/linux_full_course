@@ -1,0 +1,14 @@
+What is Operating System?
+-> An operating system (OS) is software that acts as a middleman or a bridge between computer hardware and the computer user. It provides a user interface and controls the computer hardware so that software can function
+
+Types of Operating Systems:
+1.) Desktop Operating Systems: e.g., Microsoft Windows, macOS, and Linux such as Ubuntu
+2.) Server Operating Systems: e.g., Windows Server, Linux distributions like Centos, Red Hat Entprise Linux
+3.) Mobile Operating Systems: e.g., Android, IOS, Windows Mobile
+4.) Embedded Operating Systems: used in devices like routers, sart TV's, automobiles, home appliances etc
+5.) Real-Time Operating Systems(RTOS) used in critical systems like medical equipment, car ECUs, areospace, defense, network firewalls, home security systems etc.
+
+
+----------------------------------------------- 
+What is linux?
+-> Linux is an operating system which sits in the middle of our hardware and users.
