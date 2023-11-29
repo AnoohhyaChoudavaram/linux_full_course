@@ -9,7 +9,7 @@ important:
 -> Linux is mostly CLI not GUI
 -> Linux is very flexible as compared to other operating systems.
 
---------------------------------------------------
+-----------------------------------------------------------------------------------------
 
 Whar are comand prompts?
 -> A command prompt, also reffered to simply as a prompt, is a short text at the start of the command line followed by prompt symbol on a command line interface
@@ -19,4 +19,89 @@ Whar are comand prompts?
 root -> username
 MyFirstLinuxVM -> hostname
 # -> prompt symbol
+
+-----------------------------------------------------------------------------------------
+Introduction to filesystem:
+
+=> What is a file system?
+-> It is a system used by an operating system to manage files. The system controls how data is saved or retrieved.
+-> operating system stores files  and directories in an organized and structured way
+  -> system configuration file = folder a
+  -> USER files = folder b
+  -> log files = folder c
+  -> commands or scripts = folder d and so on
+-> there are any different types of filesystem. In general, improvements have beedn made to filesystems with new releases of OS and each new filesystem has been given a different name.
+example: ext3, ext4, xfs, NTFs, fat etc
+
+==> in linux everything starts with (/) similarly in windows starts with (c drive)
+-----------------------------------------------------------------------------------------
+
+File system Structure and its description:
+
+/boot:   Contains file that is used by the boot loader (grub.cfg file)
+/root:    it is the root user home directory. it is not same as /
+/dev:     system devices (e.g., disk,cdrom, speakers, flashdrive, keyboard etc.)
+/etc:     configuration files
+/bin -> /usr/bin:   everyday user commands (ls, pwd)
+/sbin -> /usr/sbin:   system/filesystem commands
+/opt:     optional add_on applications (not part of OS apps)
+/proc:    running processes (only exist in memory)
+/lib -> usr/lib:    c programmming library files needed by commands and apps
+
+* to know whcih library file is used for which command we  can use this command [strace -e open {pwd}]
+/tmp:   directory for temporary files
+/home:    directory for user
+/var:     system logs
+/run:     system daemons that start very early (e.g. systemd and udev) to store temporary runtime files like PID files
+/mnt:     to mount external filesystem (e.g NFS)
+/media:   for cdrom mounts (virtual)
+
+-------------------------------------------------------------------------------------------
+
+Wildcards:
+
+A wild card is a character that can be used as a substitute for any of a class of characters in a search
+
+-> * - represents zero or more characters
+-> ? - reprsents a single character
+-> [] - represents a range of characters.
+
+example:
+1.) touch abcd{1..9}-xyz
+=> this will create 9 files with increasing order from 1 to 9 
+
+2.) ls -l abc*
+=> this will show the file names starting with abc 
+
+3.) ls -l ?bcd*
+=> this will display list of files which has bcd, any character at the starting and ending with any characters
+
+4.) ls -l *[cd]*
+=> this will display list of files which either c or d in the file name.
+
+Other wildcards:
+-> \ (slash) - "as an escape character"
+
+-> ^ (caret) - "the beginning of the line"
+
+-> $ (dollar sign) - "the end of the line"
+
+
+--------------------------------------------------------------------------------------------------
+
+Soft and hard links:
+
+-> inode - Poniter or number of a file on the hard disk.
+=> when ever we create a file computer assigns a nuber to that file on a hard disk and associate that number to it, called it as a inode.
+=> every time we try to retrieve that file or read that file, it goes and retrieve that number.
+
+-> soft link - soft link is created and Link will be removed if file is removed or renamed.
+=> when i create a file and create a soft link to that file, if i remove the source file it will remove the destination link. 
+
+-> Hard link - deleting renaming or moving the original file will not affect the hard link
+=> when we delete the source file, the hard link will not change as it will remain the same as if we have copied it. 
+
+  -> ln { to create hard link}
+  -> ln -s  {to create soft link}
+
 
