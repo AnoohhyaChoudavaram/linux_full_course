@@ -1,0 +1,94 @@
+Commands syntax:
+
+Command options and arguments
+-> Commands typically have the syntax:
+command option(s) argument(s)
+
+Options:
+-> Modify the way that a command works
+-> Usually consist of a hyphen or dash followed by a single letter
+-> Some commands accept multiple options which can ususlly be grouped together after a single hyphen
+
+Arguments:
+-> Most commands are used together with one or more arguments
+-> Some commands assume a default argument if none is supplied
+-> Arguments are optional for some commands and required by others.
+
+----------------------------------------------------------------------------------------
+
+File permissions:
+
+-> UNIX is a multi-user system.Every file and dictionary in our account can be protected from or made accessible to other users by changing its access permissions. Every user has responsibility for controlling access to their files.
+-> Permissions for a file or directory may be restricted to by types
+-> There are 3 types of permissions
+  - r -> read
+  - w -> write
+  - x -> excute=running a program
+
+> Each permission (rwx) can be controlled at three levels:
+  - u -> user = yourself
+  - g -> group = can be people in the same project
+  - o -> other = everyone on the system
+
+-> File or Directory permission can be displayed by running ls-l command
+  -> -rwxrwxrwx
+
+-> Command to change permission.
+  - chmod
+
+
+example:
+
+chmod g-w jerry (g-> group)
+chmod a-r jerry (a -> all)
+chmod u-w jerry (u -> user)
+{ here (-) -> means remove permissions}
+{here (+) -> means add the permissions}
+chmod u+rw jerry 
+chmod g+rw jerry
+
+--------------------------------------------------------------------------------------
+
+Permission using numreic mode
+
+-> permissin to a file and directory can also be assigne numerically
+  - chmod ugo+r File
+  or
+  - chmod 444 file
+
+=> The table below assigns numbers to permissions types
+
+Number        permission type             symbol
+0             No permmission              ---
+1             Execute                     --x
+2             write                       -w-
+3             execute + write             -wx
+4             read                        r--
+5             read+execute                r-w
+6             read+write                  rw-
+7             read+write+execute          rwx
+
+-> online calculator can be used as well
+  OWNER       GROUP         PUBLIC
+  read        read          read
+  write       write         write
+  excute      execute       execute
+
+[online change mod calculator]
+
+------------------------------------------------------------------------------------------
+
+File Ownership:
+
+-> There are 2 owners of a file or directory
+  - user and group
+
+-> Command to change file Ownership
+  - chown and chgrp
+    - chown changes the ownership of a file
+    - chgrp changes the group ownership of a file
+
+-> Recursive ownership change option (Cascade)
+  -> -R 
+
+
