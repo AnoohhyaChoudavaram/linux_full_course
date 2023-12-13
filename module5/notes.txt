@@ -1,0 +1,56 @@
+linux vi editor
+
+> vi myfirstfile
+=> editor is open but still we are in command mode
+-> once we are in the vi we have 2 modes -> insert mode {i}, -> exit mode {esc}
+-> after writing the content we can save and close the file by using 2 ways 
+1.) esc shift + zz
+2.) esc :wq!
+
+=> in vi editor commands
+
+esc dd -> to delete entire line 
+esc u -> to get back the last line
+esc x -> which deletes one letter at a time 
+esc r -> to replace a letter at time 
+esc o -> to add new line next to the end of line and also changes to insert mode
+esc a -> when we place the cursor at the space and when we insert and start writing space will be removed so get another space to be created.
+esc /{word} -> use / to search for the word in the file.
+esc :q! -> to close the file without saving the file content.
+
+-----------------------------------------------------------------------------------------
+Difference between vi and vim editor:
+
+-> As far as functionality is concerned, both editors work in the same manner. Which editor we choose is a matter of personal choice. Some people recommend learning the vim editor instead of the vi editor. Due to added features, learning and using vim editor is much easier than the vi editor.
+-> since vim is based on the vi, when we will learn how to use the vim editor, we will automatically learn how to use the vi editor.
+-> vim has all the features as vi with some excellent addition.
+-> there's also a comprehesive help system and lots of customization options available.
+
+-----------------------------------------------------------------------------------------
+
+sed command:
+
+-> it is a substitute command.
+-> replace a string in a file with a newstring.
+> sed 's/kenny/lenny/g filename
+{s-> substitute, g-> global}
+> sed -i 's/kenny/lenny/g filename
+{-i -> to insert the changes to the file}
+
+-> find and delete a line
+> sed 's/kenny/g filename
+{to delete the word}
+> sed '/seinfeld/d' filename
+
+-> remove empty lines
+>sed '/^$/d' seinfeld
+
+-> remove the first or n lines in a file
+
+
+-> to replace tabs with spaces
+-> show defined lines from a file
+-> substitute within vi editor
+-> and much more.
+
+
