@@ -43,14 +43,156 @@ sed command:
 > sed '/seinfeld/d' filename
 
 -> remove empty lines
->sed '/^$/d' seinfeld
+>sed '/^$/d' filename
 
 -> remove the first or n lines in a file
-
+> sed '1d' filename
+> sed '1,2d' filename
 
 -> to replace tabs with spaces
+> sed 's/\t/ /g' filename
+
+-> to replace space with tab
+> sed 's/ /\t/g' filename
+
 -> show defined lines from a file
+> sed -n 12,18p filename
+
+-> show undefined lines from a file
+> sed 12,18d filename
+
+-> to get space between each line 
+> sed G
+
+-> change the seinfeld with s except 8th position
+> sed '8!s/seinfeld/s/' filename
+
 -> substitute within vi editor
+:%s/seinfeld/peter
+
 -> and much more.
+
+--------------------------------------------------------------------------------------
+
+User Account Management:
+
+commands:
+-> useradd
+> useradd spiderman
+
+
+-> groupadd
+> groupadd superheros
+>groupadd nonewgroup
+to check group created or not
+> cat /etc/group
+
+-> userdel
+> userdel -r spiderman
+
+-> groupdel
+> groupdel nonewgroup
+
+-> usermod
+> usermod -G superheros spiderman {adding spiderman to superheros}
+> chgrp -R superheros spiderman (r is for cascade this permission)
+
+> cat /etc/passwd
+
+Files:
+-> /etc/passwd
+-> /etc/group
+-> /etc/shadow
+
+{
+chgrp -R superheros spiderman => to change group name
+cat /etc/passwd
+cat /etc/group
+cat /etc/shadow
+useradd ironman
+passwd ironman
+
+
+}
+
+--------------------------------------------------------------------------------------
+The /etc/login.def file:
+
+-> the chage command - per user
+-> example 
+> chage [-m mindays] [-M maxdays] [-d lastday] [-I inactive] [-E expiredate] [-W warndays] user
+
+-> File = /etc/login.defs
+  this will show
+  - pass_max_days 99999
+  - pass_min_days 0
+  - pass_min_len  5
+  - pass_warn_age 7
+  
+> more /etc/defs
+
+*
+-> -d = 3 Last password change (lastchanged): days since jan 1, 1970 that password w
+as last changed
+-> -m = 4 Minimum: the minimum number of days required between password changes i.e. the number of days left before the user is allowed to chnage his/her password
+-> -M = 5. Maximum: the maximum number of days the password is valid (after that user is forced to chnage his/her password)
+-> -I=7.Inactive: The number of days after password expires that account is disabled
+-> -E=8.Expire: days since jan 1, 1970 that account is disabled i.e. an absolute dat specifying when the login may no longer be used.
+
+> adduser babybutt
+> grep babu /etc/shadow
+>chage -m 5 -M 90 -w 10 -I 3 babubutt
+
+=> if we want to modify for all users then user login.defs file and only for specific users then use chage command
+
+--------------------------------------------------------------------------------------
+Switch users and sudo access:
+
+commands:
+-> su - username
+-> sudo command
+-> visudo {edits configuration file}
+
+file:
+- /etc/sudoers {all configurations files are stored here}
+
+-> when we are normal user try to switch to another user it will ask for password and whereas root user trying to switch to another account then it won't ask for password.
+-> to run commands without root permissions then we need to add user to the wheel group.
+-> when we want to provide user level permissions then add under root, whereas for group level then add the user in wheel group.
+-> but when ever we use command use infront sudo, without sudo that command won't work.
+
+> usermod -G wheel ec2-user
+> grep wheel /etc/group
+> su - ec2-user
+> sudo dmidecode
+> sudo fdisk -l
+
+--------------------------------------------------------------------------------------
+Monitor users:
+
+-> who 
+-> last
+-> w
+-> finger
+-> id.
+
+--------------------------------------------------------------------------------------
+talking to users:
+
+-> users
+=> to check which users are logged in
+-> wall
+> wall
+{message} -> this will be sent to all the users 
+
+-> write
+> write username
+{message} -> this will be sent to only specified user only
+
+
+
+
+
+
 
 
